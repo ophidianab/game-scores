@@ -4,6 +4,7 @@ import java.util.Objects;
 
 import javax.persistence.Entity;
 import javax.persistence.Id;
+import javax.validation.constraints.Min;
 import javax.validation.constraints.NotNull;
 
 @Entity
@@ -13,9 +14,16 @@ public class Lineup {
     @NotNull
     private Long id;
     
+    @Min(0)
     private Long skip; //Player::id
+    
+    @Min(0)
     private Long vice; //Player::id
+    
+    @Min(0)
     private Long second; //Player::id
+    
+    @Min(0)
     private Long lead; //Player::id
     
     public Lineup(long id, long skip, long vice, long second, long lead) {
