@@ -4,6 +4,8 @@ import java.util.Objects;
 
 import javax.persistence.Entity;
 import javax.persistence.Id;
+import javax.validation.constraints.Min;
+import javax.validation.constraints.NotNull;
 
 import net.dahizouse.gamescore.model.Handedness;
 
@@ -11,15 +13,19 @@ import net.dahizouse.gamescore.model.Handedness;
 public class Player {
     
     @Id
+    @NotNull
     private long id;
     
     private String firstName;
     private String lastName;
+    
+    @Min(0)
     private int age;
+    
     private Handedness handedness;
     
     
-    public Player(Long id, String first, String last, Integer age, Handedness handedness) {
+    public Player(long id, String first, String last, int age, Handedness handedness) {
         this.id = id;
         this.firstName = first;
         this.lastName = last;
